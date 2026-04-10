@@ -409,7 +409,7 @@ body {
 .footer address {
     font-style: normal;
     margin-top: var(--space-md);
-    color: var(--color-accent-main);
+    color: var(--color-text-muted);
     font-family: var(--font-sans);
     font-size: var(--font-size-sm);
     letter-spacing: 1px;
@@ -457,4 +457,5 @@ body {
         flex-direction: column;
         gap: var(--space-lg);
     }
+    
 }
