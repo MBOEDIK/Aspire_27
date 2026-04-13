@@ -59,3 +59,15 @@
     --space-2xl: 4rem;     /* Padding section standar (atas-bawah) */
     --space-3xl: 5rem;     /* Padding hero section (sangat lega) */
 }
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform;
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}

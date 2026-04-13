@@ -1,9 +1,3 @@
-// ============================================================
-// home.js — LibrAspire
-// Khusus halaman home.html
-// Fitur: Scroll Reveal (Up & Down), Animasi Statistik, Animasi Kategori
-// ============================================================
-
 function initScrollReveal() {
     const style = document.createElement('style');
     style.textContent = `
@@ -38,11 +32,8 @@ function initScrollReveal() {
         function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Masuk ke layar (Scroll Down/Up)
                     entry.target.classList.add('visible');
                 } else {
-                    // Keluar dari layar (Scroll Down/Up)
-                    // Kita cek posisi rect untuk memastikan animasi reset hanya saat benar-benar diluar viewport
                     const rect = entry.target.getBoundingClientRect();
                     if (rect.top > window.innerHeight || rect.bottom < 0) {
                         entry.target.classList.remove('visible');
@@ -82,8 +73,6 @@ function initStatisticsAnimation() {
         const suffix = originalText.replace(/[0-9.,]/g, '').trim();
         el.dataset.suffix = suffix;
         
-        // Simpan state agar animasi angka tidak reset terus menerus (opsional)
-        // Jika ingin angka reset juga saat scroll up, hapus logika 'animated' ini
         let animated = false;
 
         const observer = new IntersectionObserver(
@@ -91,9 +80,9 @@ function initStatisticsAnimation() {
                 entries.forEach(entry => {
                     if (entry.isIntersecting && !animated) {
                         animateCounter(el, numericValue, 2000);
-                        animated = true; // Angka hanya berhitung sekali agar tidak pusing
+                        animated = true;
                     } else if (!entry.isIntersecting) {
-                        animated = false; // Reset jika ingin angka berhitung ulang setiap scroll balik
+                        animated = false;
                         el.textContent = '0' + suffix;
                     }
                 });
@@ -149,7 +138,6 @@ function initCategoryAnimation() {
     });
 }
 
-// Jalankan semua fitur
 initScrollReveal();
 initStatisticsAnimation();
 initCategoryAnimation();

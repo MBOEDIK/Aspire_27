@@ -1,9 +1,3 @@
-// ============================================================
-// main.js — LibrAspire
-// Shared script untuk semua halaman
-// Fitur: Navbar aktif otomatis, Hamburger menu mobile
-// ============================================================
-
 function setActiveNavLink() {
     const currentPage = window.location.pathname.split('/').pop();
     const navLinks = document.querySelectorAll('.nav-link');
@@ -70,6 +64,25 @@ function initHamburgerMenu() {
             navbar.classList.remove('open');
             hamburger.innerHTML = '&#9776;';
         }
+    });
+
+    const observerOptions = {
+        threshold: 0.15 
+    };
+
+    const observer = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                
+                observer.unobserve(entry.target); 
+            }
+        });
+    }, observerOptions);
+
+    const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+    elementsToAnimate.forEach(el => {
+        observer.observe(el);
     });
 }
 

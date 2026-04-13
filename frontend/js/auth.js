@@ -1,22 +1,13 @@
-// ============================================================
-// auth.js — LibrAspire
-// Fitur: Validasi Form Live, Toggle Password, & UI Feedback
-// ============================================================
-
 document.addEventListener('DOMContentLoaded', () => {
     const authForms = document.querySelectorAll('.classic-form');
-
-    // 1. Tambahkan Tombol "Show Password" secara dinamis
     const passwordInputs = document.querySelectorAll('input[type="password"]');
     
     passwordInputs.forEach(input => {
-        // Bungkus input dalam div agar posisi icon absolute relatif terhadap div ini
         const wrapper = document.createElement('div');
         wrapper.style.position = 'relative';
         input.parentNode.insertBefore(wrapper, input);
         wrapper.appendChild(input);
 
-        // Buat tombol toggle
         const toggleBtn = document.createElement('span');
         toggleBtn.innerHTML = '👁️';
         toggleBtn.style.cssText = `
@@ -43,14 +34,13 @@ document.addEventListener('DOMContentLoaded', () => {
         wrapper.appendChild(toggleBtn);
     });
 
-    // 2. Validasi Real-time (Feedback Visual)
     const validateInput = (input) => {
         if (input.type === 'email') {
-            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const re = /^[^\s   @]+@[^\s@]+\.[^\s@]+$/;
             return re.test(input.value);
         }
         if (input.type === 'password') {
-            return input.value.length >= 6; // Minimal 6 karakter
+            return input.value.length >= 6;
         }
         return input.value.trim() !== '';
     };
@@ -67,7 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 3. Efek Shake jika Form Error saat Submit
     authForms.forEach(form => {
         form.addEventListener('submit', (e) => {
             let isValid = true;
@@ -81,13 +70,11 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (!isValid) {
-                e.preventDefault(); // Jangan kirim form jika tidak valid
+                e.preventDefault();
                 
-                // Efek shake pada card
                 const card = form.closest('.auth-card');
                 card.style.animation = 'shake 0.4s ease-in-out';
                 
-                // Hapus class animasi setelah selesai agar bisa diulang
                 setTimeout(() => {
                     card.style.animation = '';
                 }, 400);
@@ -98,7 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Tambahkan animasi shake ke dokumen
 const authStyle = document.createElement('style');
 authStyle.textContent = `
     @keyframes shake {
