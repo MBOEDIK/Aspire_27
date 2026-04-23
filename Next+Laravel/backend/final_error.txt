@@ -1,0 +1,26 @@
+
+   INFO  Seeding database.  
+
+  Database\Seeders\LibrarySeeder  RUNNING  
+
+   Illuminate\Database\QueryException 
+
+  SQLSTATE[HY000]: General error: 1364 Field 'descriptions' doesn't have a default value (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: labraspire_backend, SQL: insert into `users` (`name`, `email`, `email_verified_at`, `password`, `remember_token`, `role`, `updated_at`, `created_at`) values (Admin Library, admin@library.com, 2026-04-09 15:08:04, $2y$12$cMcYc3rvNliwuDTiI/7cIOnli5h9/.L1rmiR4Pckm75/YKvPSAUwq, uct3nAlEfN, Admin, 2026-04-09 15:08:04, 2026-04-09 15:08:04))
+
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:841
+    837▕             $exceptionType = ($isUniqueConstraintError = $this->isUniqueConstraintError($e))
+    838▕                 ? UniqueConstraintViolationException::class
+    839▕                 : QueryException::class;
+    840▕ 
+  ➜ 841▕             $exception = new $exceptionType(
+    842▕                 $this->getNameWithReadWriteType(),
+    843▕                 $query,
+    844▕                 $this->prepareBindings($bindings),
+    845▕                 $e,
+
+  1   vendor\laravel\framework\src\Illuminate\Database\MySqlConnection.php:53
+      PDOException::("SQLSTATE[HY000]: General error: 1364 Field 'descriptions' doesn't have a default value")
+
+  2   vendor\laravel\framework\src\Illuminate\Database\MySqlConnection.php:53
+      PDOStatement::execute()
+
