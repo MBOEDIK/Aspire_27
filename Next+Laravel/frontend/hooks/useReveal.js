@@ -7,16 +7,15 @@ export default function useReveal() {
             return undefined;
         }
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            },
-            { threshold: 0.15 }
-        );
+       const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            // Tambahkan baris ini agar observer berhenti memantau elemen yang sudah muncul
+            observer.unobserve(entry.target); 
+        }
+    });
+}, { threshold: 0.1 });
 
         elements.forEach((element) => observer.observe(element));
 
