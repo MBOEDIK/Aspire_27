@@ -4,21 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LibrAspire - Find and Borrow Books Easily</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/home.css">
 </head>
 <body>
     <header class="main-header">
         <div class="container">
             <h1 id="logo">LibrAspire</h1>
-            <nav class="navbar">
-                <a href="#" class="nav-link active">Home</a> |
-                <a href="#" class="nav-link">Catalog</a> |
-                <a href="#" class="nav-link">About</a> |
-                <a href="#" class="nav-link">Contact</a>
+            
+            <nav id="navbar" class="navbar">
+                <a href="home.html" class="nav-link">Home</a>
+                <a href="catalog.html" class="nav-link">Catalog</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
             </nav>
+            
             <div class="auth-buttons">
-                <button class="btn btn-outline">Login</button>
-                <button class="btn btn-primary">Register</button>
+                <a href="auth.html" class="btn btn-outline" style="text-decoration: none; display: inline-block;">Login</a>
+                <a href="auth.html" class="btn btn-primary" style="text-decoration: none; display: inline-block;">Register</a>
             </div>
             <p class="tagline"><strong>Temukan</strong> dan <em>pinjam</em> buku dengan mudah.<br>Lebih dari 12.000 buku tersedia.</p>
         </div>
@@ -31,14 +34,11 @@
             <div class="container">
                 <h2 class="hero-title">Find and Borrow Books Easily</h2>
                 <p class="hero-subtitle">Access thousands of books anytime, anywhere.</p>
-                <img class="hero-image" src="<https://via.placeholder.com/600x300>" alt="Digital Library Illustration" width="600">
+                
                 <div class="search-box">
                     <input type="text" placeholder="Search by title, author, or category...">
                     <button class="btn btn-primary">Cari</button>
                 </div>
-                <!-- Shape dekoratif -->
-                <img class="shape shape-1" src="<https://via.placeholder.com/200x100?text=Shape>" alt="">
-                <img class="shape shape-2" src="<https://via.placeholder.com/200x100?text=Shape>" alt="">
             </div>
         </section>
 
@@ -63,13 +63,13 @@
                 <h2 class="section-title">Popular Books</h2>
                 <div class="books-grid">
                     <article class="book-card">
-                        <img class="book-cover" src="<https://via.placeholder.com/100x150>" alt="Book cover">
+                        <img class="book-cover" src="https://bookhero.ae/cdn/shop/products/4a820723c397023344a19dfc00b68e62.jpg?v=1642936785" alt="Book cover">
                         <h3 class="book-title">The Subtle Art of Not Giving a F*ck</h3>
                         <p class="book-author">Penulis: Mark Manson (2016)</p>
                         <p class="book-status">Status: <span class="badge available">Available</span></p>
                     </article>
                     <article class="book-card">
-                        <img class="book-cover" src="<https://via.placeholder.com/100x150>" alt="Book cover">
+                        <img class="book-cover" src="https://imgv2-2-f.scribdassets.com/img/word_document/769193732/original/11fff500ad/1?v=1" alt="Book cover">
                         <h3 class="book-title">Atomic Habits</h3>
                         <p class="book-author">Penulis: James Clear (2018)</p>
                         <p class="book-status">Status: <span class="badge available">Available</span></p>
@@ -148,5 +148,7 @@
             </address>
         </div>
     </footer>
+    <script src="../js/main.js"></script>
+    <script src="../js/home.js"></script>
 </body>
 </html>

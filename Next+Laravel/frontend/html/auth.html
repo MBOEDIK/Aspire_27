@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Register - LibrAspire</title>
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <h1 id="logo">LibrAspire</h1>
+            
+            <nav id="navbar" class="navbar">
+                <a href="home.html" class="nav-link">Home</a>
+                <a href="catalog.html" class="nav-link">Catalog</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            
+            <div class="auth-buttons">
+                <a href="auth.html" class="btn btn-outline" style="text-decoration: none; display: inline-block;">Login</a>
+                <a href="auth.html" class="btn btn-primary" style="text-decoration: none; display: inline-block;">Register</a>
+            </div>
+            <p class="tagline"><strong>Temukan</strong> dan <em>pinjam</em> buku dengan mudah.<br>Lebih dari 12.000 buku tersedia.</p>
+        </div>
+        <hr>
+    </header>
+
+    <main>
+        <section class="auth-section">
+            <div class="container">
+                <h2 class="section-title">Akses Perpustakaan</h2>
+                <p class="auth-subtitle">Silakan masuk ke akun Anda atau mendaftar untuk menjadi anggota baru.</p>
+
+                <div class="auth-grid">
+                    <div class="auth-card">
+                        <h3 class="card-title">Login Member</h3>
+                        <form action="#" method="post" class="classic-form">
+                            <div class="form-group">
+                                <label for="login-email">Email:</label>
+                                <input type="email" id="login-email" name="email" required placeholder="Masukkan email Anda...">
+                            </div>
+                            <div class="form-group">
+                                <label for="login-password">Password:</label>
+                                <input type="password" id="login-password" name="password" required placeholder="Masukkan password...">
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Masuk</button>
+                                <a href="#" class="forgot-link">Lupa Password?</a>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="auth-card register-card">
+                        <h3 class="card-title">Daftar Anggota Baru</h3>
+                        <form action="#" method="post" class="classic-form">
+                            <div class="form-group">
+                                <label for="reg-name">Nama Lengkap:</label>
+                                <input type="text" id="reg-name" name="name" required placeholder="Nama sesuai kartu identitas...">
+                            </div>
+                            <div class="form-group">
+                                <label for="reg-email">Email:</label>
+                                <input type="email" id="reg-email" name="email" required placeholder="Alamat email aktif...">
+                            </div>
+                            <div class="form-group">
+                                <label for="reg-password">Password:</label>
+                                <input type="password" id="reg-password" name="password" required placeholder="Buat password yang kuat...">
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-outline">Daftar Sekarang</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <hr>
+            <p>&copy; 2025 LibrAspire. <span>All rights reserved.</span></p>
+            <p class="footer-links">
+                <a href="mailto:support@libraspire.com">Email</a> |
+                <a href="#" target="_blank">Twitter</a> |
+                <a href="#" target="_blank">Facebook</a> |
+                <a href="#" target="_blank">Instagram</a>
+            </p>
+            <address>
+                Jl Raya ITS, Surabaya, Indonesia
+            </address>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/auth.js"></script>
+</body>
+</html>
