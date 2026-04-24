@@ -216,3 +216,211 @@ position: fixed;
     /* Mencegah konflik transisi saat shake berjalan */
     transition: none !important; 
 }
+
+/* ===== TESTIMONIALS MARQUEE ===== */
+.testimonials-wrapper {
+  overflow: hidden;
+  padding: 20px 0;
+  position: relative;
+  background: var(--color-bg-tertiary); /* Warna pastel merah pucat sesuai tema */
+  border-top: 1px dashed var(--color-accent-light);
+  border-bottom: 1px dashed var(--color-accent-light);
+}
+
+.marquee-content {
+display: flex;
+  gap: 2rem;
+  width: max-content;
+  /* Pastikan durasi cukup lama agar smooth */
+  animation: marqueeScroll 60s linear infinite;
+}
+
+.marquee-content:hover {
+  animation-play-state: paused; /* Berhenti saat di-hover agar mudah dibaca */
+}
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  /* Geser tepat setengah dari total lebar container (karena data diduplikasi) */
+  to { transform: translateX(-50%); } 
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.testi-card {
+  background: var(--color-bg-secondary);
+  padding: 25px;
+  width: 350px;
+  border: 2px solid var(--color-accent-main);
+  box-shadow: var(--shadow-md);
+  flex-shrink: 0;
+}
+
+/* ===== ENHANCED CATEGORIES ===== */
+/* ===== CATEGORIES (HORIZONTAL SCROLL) ===== */
+.categories-scroll-container {
+    overflow-x: auto;
+    padding-bottom: 1.5rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-accent-light) transparent;
+}
+
+.categories-scroll-container::-webkit-scrollbar { height: 6px; }
+.categories-scroll-container::-webkit-scrollbar-thumb {
+    background: var(--color-accent-light);
+    border-radius: 10px;
+}
+
+.categories-list-horizontal {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    padding: 0;
+    width: max-content;
+}
+
+.category-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 120px;
+    background: var(--color-bg-secondary);
+    border: 2px solid var(--color-accent-main);
+    box-shadow: var(--shadow-sm);
+    text-decoration: none;
+    color: var(--color-text-main);
+    transition: all 0.2s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    background: var(--color-bg-tertiary);
+    box-shadow: var(--shadow-md);
+}
+
+.category-next-hint {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: var(--color-accent-dark);
+    padding: 0 20px;
+    font-family: var(--font-serif);
+    white-space: nowrap;
+}
+
+.cat-name { font-weight: bold; }
+.cat-count { font-size: 0.8rem; opacity: 0.8; }
+
+/* ===== TESTIMONIALS (INFINITE MARQUEE) ===== */
+.testimonials-marquee {
+    overflow: hidden;
+    padding: 30px 0;
+    background: var(--color-bg-tertiary);
+    border-top: 1px dashed var(--color-accent-light);
+    border-bottom: 1px dashed var(--color-accent-light);
+    position: relative;
+}
+
+.marquee-content {
+    display: flex;
+    gap: 2rem;
+    width: max-content;
+    animation: marqueeScroll 50s linear infinite;
+}
+
+.marquee-content:hover {
+    animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); } /* Berhenti di tengah karena data di-concat */
+}
+
+.testi-card {
+    background: var(--color-bg-secondary);
+    padding: 25px;
+    width: 350px;
+    border: 2px solid var(--color-accent-main);
+    box-shadow: var(--shadow-md);
+    flex-shrink: 0;
+    white-space: normal; /* Memastikan teks membungkus ke bawah */
+}
+
+.testi-comment { font-style: italic; margin-bottom: 15px; line-height: 1.5; }
+.testi-name { color: var(--color-accent-dark); text-align: right; }
+
+/* --- Popular Books Slider --- */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.scroll-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-btn {
+  background: var(--color-bg-secondary);
+  border: 2px solid var(--color-accent-main);
+  color: var(--color-accent-main);
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-btn:hover {
+  background: var(--color-accent-dark);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.books-slider-container {
+  position: relative;
+  margin: 0 -10px; /* Memberi ruang agar shadow card tidak terpotong di tepi */
+}
+
+.books-slider {
+  display: flex;
+  gap: 25px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 20px 10px; /* Padding atas agar hover card tidak terpotong */
+  scrollbar-width: none; /* Sembunyikan scrollbar di Firefox */
+  scroll-snap-type: x mandatory; /* Membuat efek swipe magnetis */
+}
+
+.books-slider::-webkit-scrollbar {
+  display: none; /* Sembunyikan scrollbar di Chrome/Safari */
+}
+
+.book-slide-item {
+  flex: 0 0 280px; /* Lebar tetap setiap kartu buku */
+  scroll-snap-align: start;
+  transition: transform 0.3s ease;
+}
+
+/* Responsif untuk Mobile */
+@media (max-width: 600px) {
+  .book-slide-item {
+    flex: 0 0 85%; /* Di mobile, tampilkan hampir satu layar penuh */
+  }
+  .scroll-controls {
+    display: none; /* Di mobile user biasanya swipe manual */
+  }
+}
